@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerenciador de Produtos</title>
+</head>
+<body>
+    <h1>Gerenciador de Produtos</h1>
+    
+    <h2>Lista de Produtos</h2>
+    <ul>
+        {{#this}}
+        <li>
+            {{id}} - {{nome}} - R$ {{preco}}
+            <a href="/excluir/{{id}}">Excluir</a>
+            <form method="post" action="/atualizar/{{id}}">
+                <input type="text" name="novoNomeProduto" placeholder="Novo nome">
+                <input type="text" name="novoPrecoProduto" placeholder="Novo preço">
+                <button type="submit">Atualizar</button>
+            </form>
+        </li>
+        {{/this}}
+    </ul>
+    
+    <h2>Inserir Novo Produto</h2>
+    <form method="post" action="/inserir">
+        <input type="text" name="nomeProduto" placeholder="Nome do Produto">
+        <input type="text" name="precoProduto" placeholder="Preço do Produto">
+        <button type="submit">Inserir</button>
+    </form>
+</body>
+</html>
